@@ -28,7 +28,6 @@ describe('Validate Weather', async () => {
         const search = await $(weather.element.weatherSearch);
         await search.setValue('Melbourne');
         await browser.pause(2000)
-
         const dropdown = await $(weather.element.searchDropDown)
         dropdown.click()
 
@@ -42,7 +41,6 @@ describe('Validate Weather', async () => {
         const highTemp = await $(weather.element.day1.highTemp);
         const lowTemp = await $(weather.element.day1.lowTemp);
         const description = await $(weather.element.day1.description);
-
         await console.log(`The weather for ${await day.getText()} ${await date.getText()} is a high of ${await highTemp.getText()}c and a low of ${await lowTemp.getText()}c. It will be ${await description.getText()}`);
 
         const nextday = await $(weather.element.nextDay.locator);
@@ -62,7 +60,6 @@ describe('Validate Weather', async () => {
         const highTempTwo = await $(weather.element.dayAfter.highTemp);
         const lowTempTwo = await $(weather.element.dayAfter.lowTemp);
         const descriptionTwo = await $(weather.element.dayAfter.description)
-
         await console.log(`The weather for ${dayTwo.getText()} ${dateTwo.getText()} is a high of ${highTempTwo.getText()}c and a low of ${lowTempTwo.getText()}c. It will be ${descriptionTwo.getText()}`);
     });
 });
