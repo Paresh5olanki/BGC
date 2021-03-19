@@ -23,7 +23,7 @@ describe('Validate Weather', async () => {
         expect(attr).toEqual("Enter a town, city or UK postcode")
     })
 
-    it.only('should be able to search for location and verify 3 day temp', async () => {
+    it('should be able to search for location and verify 3 day temp', async () => {
 
         const search = await $(weather.element.weatherSearch);
         await search.setValue('Melbourne');
