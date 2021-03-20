@@ -30,6 +30,36 @@ module.exports = {
                 lowTemp: "#daylink-3 > div.wr-day__body > div.wr-day__details-container > div > div.wr-day__temperature > div > div.wr-day-temperature__low > span.wr-day-temperature__low-value > span > span.wr-value--temperature--c",
                 description: "#daylink-3 > div.wr-day__body > div.wr-day__weather-type-description-container > div",
             },
+        },
+
+        checkWeatherAndOutput: async function(whichDay) {
+            const day1 = await $(this.element[whichDay].locator)
+            await day1.click()
+            const day = await $(this.element[whichDay].day);
+            const date = await $(this.element[whichDay].date);
+            const highTemp = await $(this.element[whichDay].highTemp);
+            const lowTemp = await $(this.element[whichDay].lowTemp);
+            const description = await $(this.element[whichDay].description);
+            await console.log(`The weather for ${await day.getText()} ${await date.getText()} is a high of ${await highTemp.getText()}c and a low of ${await lowTemp.getText()}c. It will be ${await description.getText()}`);
+    
+            const nextday = await $(this.element[whichDay].locator);
+            await nextday.click();
+            const dayOne = await $(this.element[whichDay].day);
+            const dateOne = await $(this.element[whichDay].date);
+            const highTempOne = await $(this.element[whichDay].highTemp);
+            const lowTempOne = await $(this.element[whichDay].lowTemp);
+            const descriptionOne = await $(this.element[whichDay].description)
+            await console.log(`The weather for ${dayOne.getText()} ${dateOne.getText()} is a high of ${highTempOne.getText()}c and a low of ${lowTempOne.getText()}c. It will be ${descriptionOne.getText()}`);
+    
+    
+            const dayAfter = await $(this.element[whichDay].locator);
+            await dayAfter.click()
+            const dayTwo = await $(this.element[whichDay].day);
+            const dateTwo = await $(this.element[whichDay].date);
+            const highTempTwo = await $(this.element[whichDay].highTemp);
+            const lowTempTwo = await $(this.element[whichDay].lowTemp);
+            const descriptionTwo = await $(this.element[whichDay].description)
+            await console.log(`The weather for ${dayTwo.getText()} ${dateTwo.getText()} is a high of ${highTempTwo.getText()}c and a low of ${lowTempTwo.getText()}c. It will be ${descriptionTwo.getText()}`);
         }
 
 }
